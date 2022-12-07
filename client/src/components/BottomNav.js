@@ -1,12 +1,12 @@
 import { BottomNavigation, BottomNavigationAction, Box, Paper } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+//import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import MonitorWeightIcon from '@mui/icons-material/MonitorWeight';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import MapRoundedIcon from '@mui/icons-material/MapRounded';
 import Rooms from "./rooms/Rooms";
 import ClusterMap from "./map/ClusterMap";
-import AddRoom from "./addRoom/AddRoom";
+import AddRoom from "./addRoom/AddRoom"; 
 
 const BottomNav = () => {
     const [value, setValue] = useState(0)
@@ -30,7 +30,7 @@ const BottomNav = () => {
                 value={value}
                 onChange={(e, newValue)=> setValue(newValue)}
                 >
-                    <BottomNavigationAction label='Dashboard' icon={<DashboardOutlinedIcon />}/>
+                    
                     <BottomNavigationAction label='Calories' icon={<MonitorWeightIcon />} />
                     <BottomNavigationAction label='Newsfeed' icon={<ForumOutlinedIcon />} />
                     <BottomNavigationAction label='Tracker' icon={<MapRoundedIcon />} />
