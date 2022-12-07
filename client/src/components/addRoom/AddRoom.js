@@ -7,7 +7,7 @@ import AddImages from './addImages/AddImages';
 
 const AddRoom = () => {
     const{state:{images, details}} = useValue()
-    const [activeStep, setActiveStep] = useState(0)
+    const [activeStep, setActiveStep] = useState(0) 
     const [steps, setSteps] = useState([
         {label: 'Location', completed:false},
         {label: 'Details', completed:false},

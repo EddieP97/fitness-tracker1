@@ -1,7 +1,41 @@
-import React from 'react';
+import {Box} from '@mui/material'
+import ReactMapGL from 'react-map-gl'
+import { useValue } from '../../../Context/ContextProvider';
+import 'mapbox-gl/dist/mapbox-gl.css'
 
-const AddPost = () => {
-    return <div>AddPost</div>;
+const AddLocation = () => {
+    const {state:{location:{lng, lat}}, dispatch} = useValue()
+    return (
+        <Box
+        sx={{
+            height: 400,
+            position:'relative'
+        }}
+        >
+            <ReactMapGL
+            mapboxAccessToken={process.env.REACT_APP_MAP_TOKEN}
+            initialViewState={{
+                longitude: lng,
+                latitude: lat,
+                zoom:8
+            }}
+            mapStyle='mapbox://styles/mapbox/streets-v11'
+            >
+            <Marker
+            latitude={lat}
+            longitude={lng}
+            draggable
+            onDragEnd={(e) =>
+            dispatch({
+              type: 'UPDATE_LOCATION',
+              payload: { lng: e.lngLat.lng, lat: e.lngLat.lat },
+            })
+          }
+        />
+            </ReactMapGL>
+
+        </Box>
+    )
 };
 
-export default AddPost;
+export default AddLocation;
