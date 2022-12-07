@@ -31,9 +31,9 @@ const BottomNav = () => {
                 onChange={(e, newValue)=> setValue(newValue)}
                 >
                     
-                    <BottomNavigationAction label='Calories' icon={<MonitorWeightIcon />} />
-                    <BottomNavigationAction label='Newsfeed' icon={<ForumOutlinedIcon />} />
-                    <BottomNavigationAction label='Tracker' icon={<MapRoundedIcon />} />
+                    <BottomNavigationAction label='Map' icon={<MonitorWeightIcon />} />
+                    <BottomNavigationAction label='Rooms' icon={<ForumOutlinedIcon />} />
+                    <BottomNavigationAction label='Add' icon={<MapRoundedIcon />} />
 
                 </BottomNavigation>    
             </Paper>

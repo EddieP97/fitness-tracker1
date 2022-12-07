@@ -6,7 +6,7 @@ import {
     RadioGroup,
     Stack,
     TextField,
-  } from '@mui/material';
+  } from '@mui/material'
   import { useState } from 'react';
   import { useValue } from '../../../context/ContextProvider';
   import InfoField from './InfoField';

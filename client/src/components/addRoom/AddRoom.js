@@ -9,8 +9,9 @@ const AddRoom = () => {
     const{state:{images, details}} = useValue()
     const [activeStep, setActiveStep] = useState(0)
     const [steps, setSteps] = useState([
-        {label: 'Post', completed:false},
-        {label: 'Image', completed:false},
+        {label: 'Location', completed:false},
+        {label: 'Details', completed:false},
+        {label: 'Images', completed:false},
     ]);
     const handleNext = () => {
         if (activeStep < steps.length -1){

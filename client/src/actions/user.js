@@ -18,7 +18,7 @@ export const register = async (user, dispatch) => {
       type: 'UPDATE_ALERT',
       payload: {
         open: true,
-        severity: 'success',
+        severity: 'success',  
         message: 'Your account has been created successfully',
       },
     });
