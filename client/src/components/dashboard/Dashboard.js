@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Rooms = () => {
+const Dashboard = () => {
     return <div>Dashboard</div>;
 };
 
-export default Rooms;
+export default Dashboard;

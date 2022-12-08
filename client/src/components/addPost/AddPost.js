@@ -6,10 +6,10 @@ import { useValue } from '../../context/ContextProvider';
 import AddDetails from './addDetails/AddDetails';
 import AddImages from './addImages/AddImages';
 import AddLocation from './addLocation/AddLocation';
-import { createRoom } from '../../actions/room';
+import { createPost } from '../../actions/post';
 
 
-const AddRoom = () => {
+const AddPost = (setPage) => {
     const{
         state:{images, details, location, currentUser}, dispatch
     } = useValue()
@@ -78,15 +78,15 @@ const AddRoom = () => {
     }, [steps])
 
     const handleSubmit = ()=>{
-        const room = {
+        const post = {
             lng:location.lng,
             lat:location.lat,
             price:details.price,
             title:details.title,
             description:details.description,
-            images
-        }
-        createRoom(room, currentUser, dispatch)
+            images,
+        };
+        createPost(post, currentUser, dispatch, setPage)
     };
     return (
         <Container sx={{my:4}}>
@@ -147,4 +147,4 @@ const AddRoom = () => {
     )
 };
 
-export default AddRoom;
+export default AddPost;

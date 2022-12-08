@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ClusterMap = () => {
+const Calories = () => {
     return <div>Calories</div>;
 };
 
-export default ClusterMap;
+export default Calories;
