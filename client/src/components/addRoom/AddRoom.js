@@ -1,18 +1,26 @@
-import { AddLocation } from '@mui/icons-material';
+//import { AddLocation } from '@mui/icons-material';
+import { Send } from '@mui/icons-material';
 import { Box, Button, Container, Stack, Step, StepButton, Stepper } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useValue } from '../../context/ContextProvider';
 import AddDetails from './addDetails/AddDetails';
 import AddImages from './addImages/AddImages';
+import AddLocation from './addLocation/AddLocation';
+import { createRoom } from '../../actions/room';
+
 
 const AddRoom = () => {
-    const{state:{images, details}} = useValue()
+    const{
+        state:{images, details, location, currentUser}, dispatch
+    } = useValue()
     const [activeStep, setActiveStep] = useState(0) 
     const [steps, setSteps] = useState([
         {label: 'Location', completed:false},
         {label: 'Details', completed:false},
         {label: 'Images', completed:false},
     ]);
+
+    const [showSubmit, setShowSubmit] = useState(false)
     const handleNext = () => {
         if (activeStep < steps.length -1){
             setActiveStep(activeStep => activeStep +1)
@@ -47,12 +55,39 @@ const AddRoom = () => {
         }
     },[details]);
 
+    useEffect(()=>{
+        if(location.lng || location.lat){
+            if(!steps[0].completed) setComplete(0, true)
+        }else{
+            if(steps[0].completed) setComplete(0, false)
+        }
+    },[location]);
+
     const setComplete = (index, status) =>{
         setSteps(steps=>{
             steps[index].completed = status
             return [...steps]
         })
     }
+    useEffect(()=>{
+        if(findUnfinished() === -1){
+            if(!showSubmit) setShowSubmit(true)
+        }else{
+            if(showSubmit) setShowSubmit(false)
+        }
+    }, [steps])
+
+    const handleSubmit = ()=>{
+        const room = {
+            lng:location.lng,
+            lat:location.lat,
+            price:details.price,
+            title:details.title,
+            description:details.description,
+            images
+        }
+        createRoom(room, currentUser, dispatch)
+    };
     return (
         <Container sx={{my:4}}>
             <Stepper
@@ -69,16 +104,18 @@ const AddRoom = () => {
                     </Step>
                 ))}
             </Stepper>
-            <Box>
+            <Box
+            sx={{pb: 7, }}
+            >
                 {{
                     0:<AddLocation/>,
                     1:<AddDetails/>,
                     2:<AddImages/>,
                 }[activeStep]}
-            </Box>
+            
             <Stack
             direction='row'
-            sx={{pt:2, pb:7, justifyContent:'space-around'}}
+            sx={{pt:2, justifyContent:'space-around'}}
             >
                 <Button
                 color="inherit"
@@ -94,6 +131,18 @@ const AddRoom = () => {
                     Next
                 </Button>
             </Stack>
+            {showSubmit && (
+                <Stack
+                sx={{alignItems: 'center'}}
+                >
+                    <Button
+                    variant='contained'
+                    endIcon={<Send/>}
+                    onClick={handleSubmit}
+                    >Submit</Button>
+                </Stack>
+            )}
+            </Box>
         </Container>
     )
 };

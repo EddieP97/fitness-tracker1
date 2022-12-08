@@ -1,10 +1,35 @@
-import {Box} from '@mui/material'
-import ReactMapGL from 'react-map-gl'
-import { useValue } from '../../../Context/ContextProvider';
-import 'mapbox-gl/dist/mapbox-gl.css'
+import { Box } from '@mui/material';
+import ReactMapGL, {
+  GeolocateControl,
+  Marker,
+  NavigationControl,
+} from 'react-map-gl';
+import { useValue } from '../../../context/ContextProvider';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { useEffect, useRef } from 'react';
+import Geocoder from './Geocoder';
 
 const AddLocation = () => {
-    const {state:{location:{lng, lat}}, dispatch} = useValue()
+    const {state:{location:{lng, lat}}, dispatch} = useValue();
+    const mapRef = useRef()
+
+    useEffect(()=>{
+      if (!lng && !lat) {
+        fetch('https://ipapi.co/json')
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            mapRef.current.flyTo({
+              center: [data.longitude, data.latitude],
+            })
+            dispatch({
+              type: 'UPDATE_LOCATION',
+              payload: { lng: data.longitude, lat: data.latitude },
+            });
+          });
+      }
+    }, []);
     return (
         <Box
         sx={{
@@ -32,7 +57,16 @@ const AddLocation = () => {
             })
           }
         />
-            </ReactMapGL>
+        <NavigationControl position="bottom-right" />
+        <GeolocateControl
+        position='top-left'
+        trackUserLocation
+        onGeolocate={(e)=> dispatch ({type:'UPDATE_LOCATION', payload:{ lng: e.coords.longitude, lat: e.coords.latitude},
+        })
+        }
+        />
+        <Geocoder />
+      </ReactMapGL> 
 
         </Box>
     )
