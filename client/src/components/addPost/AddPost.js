@@ -89,7 +89,7 @@ const AddPost = (setPage) => {
         createPost(post, currentUser, dispatch, setPage)
     };
     return (
-        <Container sx={{my:4}}>
+        <Container sx={{my:3}}>
             <Stepper
             alternativeLable
             nonLinear

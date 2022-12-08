@@ -33,7 +33,7 @@ const AddLocation = () => {
     return (
         <Box
         sx={{
-            height: 400,
+            height: 250,
             position:'relative'
         }}
         >

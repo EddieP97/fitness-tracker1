@@ -1,14 +1,14 @@
 import { BottomNavigation, BottomNavigationAction, Box, Paper } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import PostAddIcon from '@mui/icons-material/PostAdd';
+//import PostAddIcon from '@mui/icons-material/PostAdd';
 import MonitorWeightIcon from '@mui/icons-material/MonitorWeight';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import MapRoundedIcon from '@mui/icons-material/MapRounded';
 import Newsfeed from "./newsfeed/Newsfeed";
 import Dashboard from "./dashboard/Dashboard";
-import AddPost from "./addPost/AddPost"; 
-import Protected from './protected/Protected'
+//import AddPost from "./addPost/AddPost"; 
+//import Protected from './protected/Protected'
 import Tracker from "./tracker/Tracker";
 import Calories from "./calories/Calories";
 
@@ -25,7 +25,6 @@ const BottomNav = () => {
                 1: <Calories />,
                 2: <Newsfeed/>,
                 3: <Tracker />,
-                4: <Protected><AddPost setPage={setValue} /></Protected>,
             }[value]}
             <Paper
             elevation={3}
@@ -41,7 +40,7 @@ const BottomNav = () => {
                     <BottomNavigationAction label='Calories' icon={<MonitorWeightIcon />} />
                     <BottomNavigationAction label='Newsfeed' icon={<ForumOutlinedIcon />} />
                     <BottomNavigationAction label='Tracker' icon={<MapRoundedIcon />} />
-                    <BottomNavigationAction label='Add Post' icon={<PostAddIcon />} />
+                    
 
                 </BottomNavigation>    
             </Paper>

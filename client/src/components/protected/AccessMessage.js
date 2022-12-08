@@ -7,14 +7,14 @@ const AccessMessage = () => {
     const { dispatch } = useValue();
     return (
         <Container
-        sx={{py:5}}
+        sx={{py:8}}
         >
             <Alert
             severity="error"
             variant ='outlined'
             >
                 <AlertTitle>Forbidden Access</AlertTitle>
-                Please login or SignUp to access this page 
+                Please Login or SignUp to access this page 
                 <Button
                 variant = 'outlined'
                 sx={{ml:2}}
