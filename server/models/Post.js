@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const roomSchema = mongoose.Schema(
+const postSchema = mongoose.Schema(
   {
     lng: { type: Number, required: true },
     lat: { type: Number, required: true },
@@ -23,6 +23,6 @@ const roomSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Room = mongoose.model('rooms', roomSchema);
+const Post = mongoose.model('posts', postSchema);
 
-export default Room;
+export default Post;

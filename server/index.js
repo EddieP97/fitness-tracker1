@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import roomRouter from './routes/roomRouter.js';
+import postRouter from './routes/postRouter.js';
 import mongoose from 'mongoose';
 import userRouter from './routes/userRouter.js';
 
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: '10mb' }));
 
 app.use('/user', userRouter);
-app.use('/', roomRouter);
+app.use('/', postRouter);
 app.get('/', (req, res) => res.json({ message: 'Welcome to our API' }));
 app.use((req, res) =>
   res.status(404).json({ success: false, message: 'Not Found' })
