@@ -17,11 +17,11 @@ const ImagesList = () => {
     };
     return (
         <ImageList
-        rowHeight={250}
+        rowHeight={200}
         sx={{
         '&.MuiImageList-root':{
             gridTemplateColumns: 
-            'repeat(auto-fill, minmax(250px, 1fr))!important',
+            'repeat(auto-fill, minmax(150px, 1fr))!important',
         },
     }}
         >

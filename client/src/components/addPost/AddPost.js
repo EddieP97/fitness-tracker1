@@ -89,7 +89,7 @@ const AddPost = (setPage) => {
         createPost(post, currentUser, dispatch, setPage)
     };
     return (
-        <Container sx={{my:3}}>
+        <Container sx={{my:0}}>
             <Stepper
             alternativeLable
             nonLinear
@@ -105,7 +105,7 @@ const AddPost = (setPage) => {
                 ))}
             </Stepper>
             <Box
-            sx={{pb: 7, }}
+            sx={{pb: 6, }}
             >
                 {{
                     0:<AddLocation/>,

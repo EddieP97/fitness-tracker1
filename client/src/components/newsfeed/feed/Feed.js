@@ -16,7 +16,7 @@ import { Favorite, FavoriteBorder } from '@mui/icons-material';
 
 const Feed = () => {
     return (
-        <Box flex={5} p={10}>
+        <Box flex={6} p={4}>
             <Card >
       <CardHeader
         avatar={

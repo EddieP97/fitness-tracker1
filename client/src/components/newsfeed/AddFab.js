@@ -27,7 +27,7 @@ const AddFab = () => {
   aria-labelledby="modal-modal-title"
   aria-describedby="modal-modal-description"
 >
-  <Box width={700} height={550} bgcolor="white" p={3} borderRadius={5}>
+  <Box width={500} height={500} bgcolor="white" p={3} borderRadius={5}>
     <Typography>
        <AddPost sx={{position:"fixed"}}/> 
     </Typography>

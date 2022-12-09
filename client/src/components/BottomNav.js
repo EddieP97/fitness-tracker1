@@ -8,8 +8,9 @@ import MapRoundedIcon from '@mui/icons-material/MapRounded';
 import Newsfeed from "./newsfeed/Newsfeed";
 import Dashboard from "./dashboard/Dashboard";
 //import AddPost from "./addPost/AddPost"; 
-//import Protected from './protected/Protected'
-import Tracker from "./tracker/Tracker";
+import Protected from './protected/Protected'
+//import Tracker from "./tracker/Tracker";
+import MealPlan from "./mealPlan/MealPlan";
 import Calories from "./calories/Calories";
 
 const BottomNav = () => {
@@ -21,10 +22,10 @@ const BottomNav = () => {
     return (
         <Box ref={ref}>
             {{
-                0: <Dashboard/>,
-                1: <Calories />,
-                2: <Newsfeed/>,
-                3: <Tracker />,
+                0: <Protected><Dashboard/></Protected>,
+                1: <Protected><Calories /></Protected>,
+                2: <Protected><Newsfeed/></Protected>,
+                3: <Protected><MealPlan /></Protected>,
             }[value]}
             <Paper
             elevation={3}

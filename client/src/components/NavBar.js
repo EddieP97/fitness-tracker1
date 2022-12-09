@@ -27,7 +27,8 @@ const NavBar = () => {
 
 
     return (
-        <AppBar >
+      <div style={{ paddingTop: 64}}>
+        <AppBar position="fixed">
         <Container maxWidth="lg">
         <Toolbar disableGutters>
           <FitnessCenterRoundedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -120,12 +121,10 @@ const NavBar = () => {
                     </Button>) : (
                         <UserIcons />
                     )}
-
-
-          
         </Toolbar>
       </Container>
     </AppBar>
+    </div>
 
        
     )

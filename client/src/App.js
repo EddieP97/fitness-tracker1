@@ -9,6 +9,7 @@ import BottomNav from './components/BottomNav';
 function App() {
   return (
    <>
+   
    <Loading></Loading>
    <Notification></Notification>
    <Login></Login> 

@@ -4,7 +4,7 @@ import React from "react";
 
 const SideBar = () => {
     return (
-        <Box flex={1} p={10} sx={{display: {xs: "none", sm: "block"}}}>
+        <Box flex={1} p={4} sx={{display: {xs: "none", sm: "block"}}}>
             <Box position="fixed">
             <List>
                 <ListItem disablePadding>
