@@ -22,10 +22,10 @@ const BottomNav = () => {
     return (
         <Box ref={ref}>
             {{
-                0: <Protected><Dashboard/></Protected>,
-                1: <Protected><Calories /></Protected>,
-                2: <Protected><Newsfeed/></Protected>,
-                3: <Protected><MealPlan /></Protected>,
+                0: <Dashboard/>,
+                1: <Calories />,
+                2: <Newsfeed/>,
+                3: <MealPlan />,
             }[value]}
             <Paper
             elevation={3}
